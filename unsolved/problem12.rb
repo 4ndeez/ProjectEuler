@@ -1,14 +1,19 @@
 require 'benchmark'
 require 'prime'
 puts Benchmark.measure {
-  value = 1
+  i = 1
   counter = 0
   while true
-    (1..value).reduce(:+) do |num|
-      counter.succ if value % num == 0
-      p value
+    triangle = (1..i).reduce(:+)
+    (1..triangle).map do |div|
+      next if triangle % triangle/2 != 0
+      counter += 1 if triangle % div == 0
+      if triangle > 200000
+        puts triangle
+      end
     end
-    counter > 500 ? break : counter = 0
-    value += 1
+    puts triangle
+    counter = 0
+    i += 1
   end
 }
