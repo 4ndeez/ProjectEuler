@@ -1,5 +1,6 @@
 require 'benchmark'
 require 'prime'
+
 puts Benchmark.measure {
   def triplet_product
     (1..1000).each do |a1|
@@ -9,5 +10,6 @@ puts Benchmark.measure {
       end
     end
   end
+
   puts triplet_product
 }

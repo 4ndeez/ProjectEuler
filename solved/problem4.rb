@@ -1,4 +1,5 @@
 require 'benchmark'
+# method 1
 puts Benchmark.measure {
   arr = []
   for i in 100..999
@@ -10,19 +11,20 @@ puts Benchmark.measure {
   puts arr.max
 }
 
-def palindrome
-  (999 * 999).downto(1) do |n|
-    n_str = n.to_s
-    next unless n_str == n_str.reverse
+# method 2, better
+puts Benchmark.measure {
+  def palindrome
+    (999 * 999).downto(1) do |n|
+      n_str = n.to_s
+      next unless n_str == n_str.reverse
 
-    999.downto(100) do |m1|
-      break if n / m1 > 999
+      999.downto(100) do |m1|
+        break if n / m1 > 999
 
-      return [n, m1] if n % m1 == 0
+        return [n, m1] if n % m1 == 0
+      end
     end
   end
-end
 
-puts Benchmark.measure {
- puts palindrome
+  puts palindrome
 }

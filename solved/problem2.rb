@@ -1,4 +1,5 @@
 require 'benchmark'
+# method 1
 puts Benchmark.measure {
   arr = [1, 2]
   term = 0
@@ -11,7 +12,7 @@ puts Benchmark.measure {
   puts sum
 }
 
-
+# method 2, better
 puts Benchmark.measure {
   a1, a2 = 2, 3
   sum = 2
