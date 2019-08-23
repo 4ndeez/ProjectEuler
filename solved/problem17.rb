@@ -1,5 +1,5 @@
 require 'benchmark'
-hash = { 1 => 'one',
+$hash = { 1 => 'one',
          2 => 'two',
          3 => 'three',
          4 => 'four',
@@ -27,35 +27,31 @@ hash = { 1 => 'one',
          80 => 'eighty',
          90 => 'ninety',
          100 => 'hundred',
-         1000 => 'thousand' }
+         1000 => 'onethousand' }
 word_array = Array.new
 
-def translator(number, hash, reminder = 0, output = '')
-  reminder = number % 10
-  if !hash[number].nil? && number < 100
-    return hash[number]
-  end
-  if number/100 != 0 # 100+
-    if number == 1000
-      return "onethousand"
-    end
-    reminder = number % 100
-    output = hash[number/100] + hash[100]
-    if reminder != 0
-      return output += 'and' + translator(reminder, hash)
+def translator(number)
+  reminder = number >= 100 ? number % 100 : number % 10
+  case number
+  when 1..99
+    return $hash[number] unless $hash[number].nil? && number # return hash if exist
+    ($hash[number-reminder] + $hash[reminder])
+  when 100...1000
+    return ($hash[number/100] + $hash[100]) if reminder == 0
+    if !$hash[reminder].nil?
+      ($hash[number/100] + $hash[100] + 'and' + $hash[reminder])
     else
-      return output
+      rem = number % 10
+      ($hash[number/100] + $hash[100] + 'and' + $hash[reminder - rem] + $hash[rem])
     end
+  else
+    $hash[number] # 1000
   end
-  if reminder != 0 # 21..99
-    return output = (hash[number - reminder] + hash[reminder])
-  end
-  output
 end
 
 puts Benchmark.measure {
   (1..1000).map do |num|
-    word_array << translator(num, hash)
+    word_array << translator(num)
   end
 
   puts word_array.reduce(:+).chars.length
