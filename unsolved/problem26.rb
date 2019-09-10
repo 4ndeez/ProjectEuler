@@ -1,8 +1,11 @@
 require 'benchmark'
 
 puts Benchmark.measure {
-  longest = 0
-  (2...1000).map do |i|
-    puts "#{i}: #{1.0/i}"
+  array1 = []
+  array2 = []
+  (2...100).map do |i|
+    number = 1.0 / i
+    puts "#{i}: #{number} #{number.to_s.size - 1} chars"
+
   end
 }

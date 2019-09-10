@@ -1,22 +1,30 @@
 require 'benchmark'
 
-puts Benchmark.measure {
-  offset = 2
-  ary = (1..1002001).to_a
-  sum = 0
-  pointer = 0
-  inner = 1
-  counter = 0
-  while pointer < ary.size
-    sum += ary[pointer]
-    counter += 1
-    if (counter-1) % 4 == 0 && counter > 3
+def diagonals_sum(n)
+  offset, sum, pointer, counter = 2, 0, 1, 0
+  while pointer <= n * n
+    sum += pointer
+    if counter % 4 == 0 && counter > 3
       offset += 2
       pointer += offset
-      inner += 1
     else
       pointer += offset
     end
+    counter += 1
   end
-  p sum
+  sum
+end
+
+puts Benchmark.measure {
+  p diagonals_sum(1001)
+}
+
+puts Benchmark.measure {
+  def clockwise_matrix(n)
+    (1..n*n).each_slice(n).map do |i|
+      p i
+    end
+  end
+
+  clockwise_matrix 5
 }
