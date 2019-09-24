@@ -1,4 +1,5 @@
 require 'benchmark'
+require 'bigdecimal/math'
 
 puts Benchmark.measure {
   def divide n, d, repo = []
@@ -18,4 +19,14 @@ puts Benchmark.measure {
 
   puts highest
   puts highest["d"]
+}
+
+puts Benchmark.measure {
+  max,num=0,0
+  1.upto(999) do |i|
+    len=/(\w+?)\1/.match(((10**2000)/i).to_s)[1].length
+    max,num=len,i if len > max
+  end
+  puts num
+  puts max
 }

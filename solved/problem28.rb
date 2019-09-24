@@ -18,13 +18,3 @@ end
 puts Benchmark.measure {
   p diagonals_sum(1001)
 }
-
-puts Benchmark.measure {
-  def clockwise_matrix(n)
-    (1..n*n).each_slice(n).map do |i|
-      p i
-    end
-  end
-
-  clockwise_matrix 5
-}
