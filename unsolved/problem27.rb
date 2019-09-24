@@ -1,7 +1,8 @@
 require 'benchmark'
+require 'prime'
 
 puts Benchmark.measure {
-  p "n:"
-  n = gets.chomp.to_i
-  puts n**2 + n + 41
+  puts (-999..999).to_a.product((-999..999).to_a).map { |a, b|
+    [(0..100).take_while { |n| (n**2 + a*n + b).prime? }.count, a * b]
+  }.max[1]
 }
