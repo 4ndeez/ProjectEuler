@@ -1,5 +1,4 @@
 require 'benchmark'
-require 'bigdecimal/math'
 
 puts Benchmark.measure {
   def divide n, d, repo = []
