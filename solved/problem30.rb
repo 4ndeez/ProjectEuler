@@ -11,18 +11,11 @@ def c_division(num)
   result
 end
 
-puts Benchmark.measure {
-  sum = 0
-  (1111..200000).map do |n|
-    (sum += n; puts n) if n == n.digits.map {|x| x = x**5}.sum
-  end
-  p sum
-}
-
+# method 1
 puts Benchmark.measure {
   puts (1111..200000).select { |i| i == i.digits.map {|j| j = j**5}.sum}.sum
 }
-
+# method 2, little bit faster
 puts Benchmark.measure {
   puts (1111..200000).select { |i| i == c_division(i)}.sum
 }
