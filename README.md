@@ -1,6 +1,6 @@
 # ProjectEuler
 Repository dedicated to https://projecteuler.net problem solving
-##Rules and details
+## Rules and details
 Each problem has been designed according to a "one-minute rule", which means that although it may take several hours to design a successful algorithm with more difficult problems, an efficient implementation will allow a solution to be obtained on a modestly powered computer in less than one minute.
 ___
 Repository contains 4 folders:
@@ -9,8 +9,8 @@ Repository contains 4 folders:
 - solved 
 - unsolved (problems next in line)
 
-
-##Progress
+## Progress
+___
 ~~1 2 3 4 5 6 7 8 9 10~~
 
 ~~11 12 13 14 15 16 17 18 19 20~~
@@ -19,7 +19,7 @@ Repository contains 4 folders:
 
 31 ~~32~~ 33 34 ~~35~~ 36 37 38 39 40
 
-~~41	
+41	
   42	
   43	
   44	
@@ -28,9 +28,9 @@ Repository contains 4 folders:
   47	
   48	
   49	
-  50~~
+  50
   
-~~51	
+51	
   52	
   53	
   54	
@@ -39,18 +39,18 @@ Repository contains 4 folders:
   57	
   58	
   59	
-  60~~
+  60
   
-~~61	
+61	
   62	
   63	
   64	
   65	
-  66~~ 67 ~~68	
+  66 ~~67~~ 68	
   69	
-  70~~
+  70
   
-~~71	
+71	
   72	
   73	
   74	
@@ -59,9 +59,9 @@ Repository contains 4 folders:
   77	
   78	
   79	
-  80~~
+  80
   
-~~81	
+81	
   82	
   83	
   84	
@@ -70,15 +70,13 @@ Repository contains 4 folders:
   87	
   88	
   89	
-  90~~
+  90
   
-~~91~~
-92
-~~93	
+91 ~~92~~ 93	
   94	
   95	
   96	
   97	
   98	
   99	
-  100~~
+  100
