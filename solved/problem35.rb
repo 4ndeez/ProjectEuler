@@ -13,9 +13,9 @@ def circular_primes(num)
     end
     result_ary << prime.join('').to_i if flag
   end
-  result_ary
+  result_ary.size
 end
 
-puts Benchmark.measure {
-  p circular_primes(999999).size
-}
+Benchmark.bm do |bm|
+  bm.report { circular_primes(999_999) }
+end
