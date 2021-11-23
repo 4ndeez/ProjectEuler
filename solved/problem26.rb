@@ -13,7 +13,7 @@ highest = { 'd' => 1, 'count' => 1 }
 end
 
 # _____________
-# second method
+# second solution
 def reciprocal_cycle
   max, num = 0, 0
   (1..999).each do |i|
